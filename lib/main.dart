@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'basic_widgets/loading_cupertino.dart';
+import 'basic_widgets/text_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -95,9 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+            const MyTextWidget(),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
@@ -105,11 +105,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton:
+          // ignore: prefer_const_constructors
+          LoadingBar(), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
